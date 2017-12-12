@@ -63,28 +63,101 @@
               {
                 name: "Mobile_Sticky",
                 values: [743.77, 678.32]
+              },
+              {
+                name: 'InA-LB1',
+                values: [192.32, 378.32]
+              },
+              {
+                name: 'LB1',
+                values: [92.21, 87.44]
               }
             ]
           },
           {
             i: "1",
             name: "Source Impressions",
+            data: [
+              {
+                name: "Rubbicon",
+                values: [21234, 24543]
+              },
+              {
+                name: "Google Ad Exchange",
+                values: [15029, 13435]
+              },
+              {
+                name: "Appnexus",
+                values: [500, 432]
+              },
+              {
+                name: "Sovrn",
+                values: [98, 74]
+              }
+            ]
           },
           {
             i: "2",
             name: "Location CPM",
+            data: [
+              {
+                name: "United States",
+                values: [1100, 1200]
+              },
+              {
+                name: "United Kingdom",
+                values: [743.77, 678.32]
+              },
+              {
+                name: "Canada",
+                values: [192.32, 378.32]
+              },
+              {
+                name: "China",
+                values: [92.21, 87.44]
+              }
+            ]
           },
           {
             i: "3",
             name: "Device Revenue",
+            data: [
+              {
+                name: "Mobile",
+                values: [1100, 1200]
+              },
+              {
+                name: "Desktop",
+                values: [743.77, 678.32]
+              },
+              {
+                name: "Tablet",
+                values: [192.32, 378.32]
+              },
+            ]
           },
           {
             i: "4",
             name: "My Reports",
+            data: []
           },
           {
             i: "5",
             name: "Device Impressions",
+            data: [
+              {
+                name: "Mobile",
+                values: [1000, 1200]
+              },
+              {
+                name: "Desktop",
+                values: [532, 624]
+              },
+              {
+                name: "Tablet",
+                values: [399, 245]
+              },
+            ]
           },
         ],
       }

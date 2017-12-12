@@ -4,7 +4,7 @@
     <div class="card-metric" v-for="metric in metrics.data">
       <div class="card-metric-left">
         <span class="card-metric-name">{{metric.name}}</span>
-        <span class="card-metric-bar" v-for="value in metric.values" :class="{'card-metric-bar-active': isLargestValue(metric, value)}" :style="{width: getLength(metric, value)}"></span>
+        <span class="card-metric-bar" v-for="value in metric.values" :class="{'card-metric-bar-active': isLargestValue(metric, value)}" :style="{width: getLength(value)}"></span>
       </div>
       <div class="card-metric-right">
         <span class="card-metric-value" v-for="value in metric.values" :class="{'card-metric-value-active': isLargestValue(metric, value)}">{{value}}</span>
@@ -30,8 +30,13 @@
         }
         return largestValue;
       },
-      getLength(metric, value) {
-        const largestValue = this.getLargestValue(metric);
+      getLength(value) {
+        let largestValue = 0;
+        for (let i=0; i<this.metrics.data.length; i++) {
+          if (this.getLargestValue(this.metrics.data[i]) > largestValue) {
+            largestValue = this.getLargestValue(this.metrics.data[i]);
+          }
+        }
         return `${(value / largestValue) * 100}%`;
       },
       isLargestValue(metric, value) {
@@ -81,7 +86,6 @@
   }
   .card-metric-name {
     font-size: 12px;
-    text-transform: uppercase;
     line-height: 15px;
     margin-bottom: 5px;
   }
