@@ -16,8 +16,8 @@
                  :w="item.w"
                  :h="item.h"
                  :i="item.i"
-                 :maxH="4"
-                 :minH="4"
+                 :maxH="7"
+                 :minH="7"
                  :minW="3"
       >
         <dashboard-card :metrics="metrics[index]"/>
@@ -43,12 +43,12 @@
     data () {
       return {
         layout: [
-          {"x":0,"y":0,"w":4,"h":4,"i":"0"},
-          {"x":4,"y":0,"w":4,"h":4,"i":"1"},
-          {"x":8,"y":0,"w":4,"h":4,"i":"2"},
-          {"x":0,"y":4,"w":3,"h":4,"i":"3"},
-          {"x":3,"y":4,"w":6,"h":4,"i":"4"},
-          {"x":9,"y":4,"w":3,"h":4,"i":"5"},
+          {"x":0,"y":0,"w":4,"h":7,"i":"0"},
+          {"x":4,"y":0,"w":4,"h":7,"i":"1"},
+          {"x":8,"y":0,"w":4,"h":7,"i":"2"},
+          {"x":0,"y":7,"w":3,"h":7,"i":"3"},
+          {"x":3,"y":7,"w":6,"h":7,"i":"4"},
+          {"x":9,"y":7,"w":3,"h":7,"i":"5"},
         ],
         metrics: [
           {
@@ -92,12 +92,14 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
   .vue-grid-item {
-    background-color: pink;
+    background-color: rgba(0,0,0,0.3);
   }
   .vue-grid-item.resizing {
     opacity: 0;
+  }
+  .vue-grid-item.vue-grid-placeholder {
+    background: grey;
   }
 </style>
