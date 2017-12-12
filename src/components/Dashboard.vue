@@ -20,6 +20,7 @@
                  :minH="8"
                  :minW="3"
                  :key="item.i"
+                 @resized="resize"
       >
         <dashboard-card :metrics="metrics[index]"/>
       </grid-item>
@@ -162,6 +163,18 @@
           },
         ],
       }
+    },
+    methods: {
+      resize() {
+        console.log('resize');
+        for (let i=1; i < this.layout.length; i++) {
+          if (this.layout[i].y === this.layout[i-1].y && this.layout[i].x > this.layout[i-1].x + this.layout[i-1].w) {
+            const prevX = this.layout[i].x;
+            this.layout[i].x = this.layout[i-1].x + this.layout[i-1].w;
+            this.layout[i].w += prevX - this.layout[i].x;
+          }
+        }
+      },
     }
   }
 </script>
