@@ -20,7 +20,7 @@
                  :minH="1"
                  :minW="3"
                  :key="item.i"
-                 @resized="resize"
+                 @resized="expandToFit"
       >
         <dashboard-card :layout="item" :metrics="metrics[index]"/>
       </grid-item>
@@ -165,7 +165,8 @@
       }
     },
     methods: {
-      resize() {
+      expandToFit() {
+        /* TODO: Fix this listener
         for (let i=1; i < this.layout.length; i++) {
           if (this.layout[i].y === this.layout[i-1].y && this.layout[i].x > this.layout[i-1].x + this.layout[i-1].w) {
             const prevX = this.layout[i].x;
@@ -173,6 +174,7 @@
             this.layout[i].w += prevX - this.layout[i].x;
           }
         }
+        */
       },
     }
   }
