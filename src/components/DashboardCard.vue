@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-card">
-    <span class="card-name">{{metrics.name}}</span>
-    <div class="card-metric" v-for="metric in metrics.data" :key="metric">
+    <span class="card-name">{{metrics.name}} - x:{{layout.x}} y:{{layout.y}} w:{{layout.w}} i:{{layout.i}}</span>
+    <div class="card-metric" v-for="metric in metrics.data" :key="metric.name">
       <div class="card-metric-left">
         <span class="card-metric-name">{{metric.name}}</span>
         <div class="card-metric-bar-wrapper">
@@ -25,7 +25,7 @@
 <script>
   export default {
     name: 'DashboardCard',
-    props: ['metrics'],
+    props: ['metrics', 'layout'],
     data () {
       return {}
     },

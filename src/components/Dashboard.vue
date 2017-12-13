@@ -22,7 +22,7 @@
                  :key="item.i"
                  @resized="resize"
       >
-        <dashboard-card :metrics="metrics[index]"/>
+        <dashboard-card :layout="item.i" :metrics="metrics[index]"/>
       </grid-item>
     </grid-layout>
   </div>
@@ -166,14 +166,32 @@
     },
     methods: {
       resize() {
-        console.log('resize');
-        for (let i=1; i < this.layout.length; i++) {
-          if (this.layout[i].y === this.layout[i-1].y && this.layout[i].x > this.layout[i-1].x + this.layout[i-1].w) {
-            const prevX = this.layout[i].x;
-            this.layout[i].x = this.layout[i-1].x + this.layout[i-1].w;
-            this.layout[i].w += prevX - this.layout[i].x;
+        /*TODO: Reformat grid to fill empty spaces on resize
+
+        //Create a sorted list
+        const sortedLayout = this.layout.sort((a, b) => {
+          return ((a.y * 100) + a.x) - ((b.y * 100) + b.x);
+        });
+
+        //Adjust the list
+        for (let i=1; i < sortedLayout.length; i++) {
+          if (sortedLayout[i].y === sortedLayout[i-1].y && sortedLayout[i].x > sortedLayout[i-1].x + sortedLayout[i-1].w) {
+            const prevX = sortedLayout[i].x;
+            sortedLayout[i].x = sortedLayout[i-1].x + sortedLayout[i-1].w;
+            sortedLayout[i].w += prevX - sortedLayout[i].x;
           }
         }
+
+        //Reassign values to original layout
+        for (let i=0; i < sortedLayout.length; i++) {
+          for (let j=0; j < this.layout.length; j++) {
+            if (sortedLayout[i].i === this.layout[j].i) {
+              this.layout[j] = sortedLayout[i];
+            }
+          }
+        }
+
+        */
       },
     }
   }
