@@ -166,10 +166,6 @@
     },
     methods: {
       resize() {
-        this.layout = this.layout.sort((a, b) => {
-          return ((a.y * 100) + a.x) - ((b.y * 100) + b.x);
-        });
-
         for (let i=1; i < this.layout.length; i++) {
           if (this.layout[i].y === this.layout[i-1].y && this.layout[i].x > this.layout[i-1].x + this.layout[i-1].w) {
             const prevX = this.layout[i].x;
