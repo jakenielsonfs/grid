@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-card">
-    <span class="card-name">{{metrics.name}} - x:{{layout.x}} y:{{layout.y}} w:{{layout.w}} i:{{layout.i}}</span>
+    <span class="card-name">{{metrics.name}}</span>
     <div class="card-metric" v-for="metric in metrics.data" :key="metric.name">
       <div class="card-metric-left">
         <span class="card-metric-name">{{metric.name}}</span>
@@ -83,7 +83,7 @@
     margin-top: 20px;
   }
   .card-metric-left {
-    width: calc(100% - 80px);
+    width: calc(100% - 100px);
     display: flex;
     flex-direction: column;
     margin-right: 20px;
@@ -92,6 +92,7 @@
     width: 80px;
     display: flex;
     flex-direction: row;
+    float: right;
   }
   .card-metric-value-wrapper {
     display: flex;
@@ -103,6 +104,9 @@
     font-size: 12px;
     line-height: 15px;
     margin-bottom: 5px;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .card-metric-value {
     font-size: 10px;
@@ -111,7 +115,6 @@
   }
   .card-metric-bar-wrapper {
     width: 100%;
-    height: 100%;
   }
   .card-metric-bar {
     height: 3px;

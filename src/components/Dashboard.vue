@@ -3,7 +3,7 @@
     <grid-layout
       :layout="layout"
       :col-num="12"
-      :row-height="240"
+      :row-height="320"
       :is-draggable="true"
       :is-resizable="true"
       :vertical-compact="false"
