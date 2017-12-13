@@ -3,10 +3,10 @@
     <grid-layout
       :layout="layout"
       :col-num="12"
-      :row-height="30"
+      :row-height="240"
       :is-draggable="true"
       :is-resizable="true"
-      :vertical-compact="true"
+      :vertical-compact="false"
       :margin="[10, 10]"
       :use-css-transforms="true"
     >
@@ -16,8 +16,8 @@
                  :w="item.w"
                  :h="item.h"
                  :i="item.i"
-                 :maxH="8"
-                 :minH="8"
+                 :maxH="1"
+                 :minH="1"
                  :minW="3"
                  :key="item.i"
                  @resized="resize"
@@ -45,12 +45,12 @@
     data () {
       return {
         layout: [
-          {"x":0,"y":0,"w":4,"h":8,"i":"0"},
-          {"x":4,"y":0,"w":4,"h":8,"i":"1"},
-          {"x":8,"y":0,"w":4,"h":8,"i":"2"},
-          {"x":0,"y":8,"w":3,"h":8,"i":"3"},
-          {"x":3,"y":8,"w":6,"h":8,"i":"4"},
-          {"x":9,"y":8,"w":3,"h":8,"i":"5"},
+          {"x":0,"y":0,"w":4,"h":1,"i":"0"},
+          {"x":4,"y":0,"w":4,"h":1,"i":"1"},
+          {"x":8,"y":0,"w":4,"h":1,"i":"2"},
+          {"x":0,"y":1,"w":3,"h":1,"i":"3"},
+          {"x":3,"y":1,"w":6,"h":1,"i":"4"},
+          {"x":9,"y":1,"w":3,"h":1,"i":"5"},
         ],
         metrics: [
           {
@@ -166,32 +166,17 @@
     },
     methods: {
       resize() {
-        /*TODO: Reformat grid to fill empty spaces on resize
-
-        //Create a sorted list
-        const sortedLayout = this.layout.sort((a, b) => {
+        this.layout = this.layout.sort((a, b) => {
           return ((a.y * 100) + a.x) - ((b.y * 100) + b.x);
         });
 
-        //Adjust the list
-        for (let i=1; i < sortedLayout.length; i++) {
-          if (sortedLayout[i].y === sortedLayout[i-1].y && sortedLayout[i].x > sortedLayout[i-1].x + sortedLayout[i-1].w) {
-            const prevX = sortedLayout[i].x;
-            sortedLayout[i].x = sortedLayout[i-1].x + sortedLayout[i-1].w;
-            sortedLayout[i].w += prevX - sortedLayout[i].x;
+        for (let i=1; i < this.layout.length; i++) {
+          if (this.layout[i].y === this.layout[i-1].y && this.layout[i].x > this.layout[i-1].x + this.layout[i-1].w) {
+            const prevX = this.layout[i].x;
+            this.layout[i].x = this.layout[i-1].x + this.layout[i-1].w;
+            this.layout[i].w += prevX - this.layout[i].x;
           }
         }
-
-        //Reassign values to original layout
-        for (let i=0; i < sortedLayout.length; i++) {
-          for (let j=0; j < this.layout.length; j++) {
-            if (sortedLayout[i].i === this.layout[j].i) {
-              this.layout[j] = sortedLayout[i];
-            }
-          }
-        }
-
-        */
       },
     }
   }
