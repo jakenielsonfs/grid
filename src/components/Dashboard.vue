@@ -22,7 +22,7 @@
                  :key="item.i"
                  @resized="resize"
       >
-        <dashboard-card :layout="item.i" :metrics="metrics[index]"/>
+        <dashboard-card :layout="item" :metrics="metrics[index]"/>
       </grid-item>
     </grid-layout>
   </div>
